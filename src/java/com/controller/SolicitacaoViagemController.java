@@ -10,6 +10,8 @@ import com.model.entity.Usuario;
 import com.model.entity.Veiculo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -118,6 +120,15 @@ public class SolicitacaoViagemController {
         this.solicitacaoviagem = new SolicitacaoViagemDAO().getById(id);
         //throw new Exception("Objetivo: " + this.solicitacaoviagem.getObjetivo());
         return "formulario";
+    }
+    
+    public String deletar(Integer id) {
+        try {
+            new SolicitacaoViagemDAO().deletar(id);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "listar";
     }
 
     @PostConstruct

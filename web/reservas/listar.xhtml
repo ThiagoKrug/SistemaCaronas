@@ -35,7 +35,7 @@
                     <h:commandButton value="Editar" action="#{solicitacaoViagemController.editar(viagem.id)}">
                         <f:param name="id" value="#{viagem.id}" />
                     </h:commandButton>
-                    <h:commandButton value="Deletar" action="#{solicitacaoViagemController.deletar(viagem)}">
+                    <h:commandButton value="Deletar" action="#{solicitacaoViagemController.deletar(viagem.id)}">
                         <f:param name="id" value="#{viagem.id}" />
                     </h:commandButton>
                 </h:column>
