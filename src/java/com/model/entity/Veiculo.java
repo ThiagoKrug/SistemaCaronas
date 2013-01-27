@@ -1,17 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.entity;
-
-import javax.faces.bean.ManagedProperty;
 
 /**
  *
  * @author Usuario
- * */
+ *
+ */
 public class Veiculo {
-    
+
     private Integer id;
     private TipoVeiculo tipoVeiculo;
     private String placa;
@@ -19,10 +14,10 @@ public class Veiculo {
     private Integer capacidadePassageiro;
     private String cor;
 
-    
     public Veiculo() {
         this.quilometragem = 0.0f;
     }
+
     /**
      * @return the id
      */
@@ -36,7 +31,6 @@ public class Veiculo {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     /**
      * @return the placa
@@ -107,13 +101,12 @@ public class Veiculo {
     public void setTipoVeiculo(TipoVeiculo tipoVeiculo) {
         this.tipoVeiculo = tipoVeiculo;
     }
-    
+
     public String getTipo() {
         return this.tipoVeiculo.getTipoVeiculo();
     }
-    
+
     public void setTipo(String tipo) {
         this.tipoVeiculo.setTipoVeiculo(tipo);
     }
-    
 }

@@ -8,7 +8,7 @@
     <ui:define name="content">
         <h:form>
             <h:commandButton value="Solicitar Viagem" action="/reservas/formulario.jsf" />
-            
+
             <h:dataTable id="viagens" rendered="#{! empty solicitacaoViagemController.viagens}" var="viagem" value="#{solicitacaoViagemController.viagens}" >
                 <h:column>
                     <f:facet name="header" ><h:outputText value="Id" /></f:facet>

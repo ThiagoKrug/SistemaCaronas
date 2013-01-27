@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.dao;
 
 import com.jdbc.ConnectionFactory;
-import com.model.entity.TipoUsuario;
 import com.model.entity.TipoVeiculo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,20 +14,21 @@ import java.util.List;
  * @author Usuario
  */
 public class TipoVeiculoDAO {
-private Connection connection;
-    
+
+    private Connection connection;
+
     public TipoVeiculoDAO() {
         try {
             this.connection = new ConnectionFactory().getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
     public TipoVeiculo getById(Integer id) {
         String sql = "select * from tipo_veiculo where id_tipo_veiculo=?";
-        
+
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setInt(1, id);
@@ -48,7 +44,7 @@ private Connection connection;
         }
         return null;
     }
-    
+
     public List<TipoVeiculo> getTiposVeiculos() {
         String sql = "select * from tipo_veiculo";
         List<TipoVeiculo> tipos = new ArrayList<TipoVeiculo>();
@@ -66,5 +62,4 @@ private Connection connection;
         }
         return tipos;
     }
-    
 }

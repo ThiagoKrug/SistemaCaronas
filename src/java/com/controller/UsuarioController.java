@@ -45,8 +45,8 @@ public class UsuarioController {
         if (this.usuario.getId() == null) {
             ud.inserir(this.usuario);
         } else {
-            if (usuario.getSenha() == null ||
-                    usuario.getSenha().equals("")) {
+            if (usuario.getSenha() == null
+                    || usuario.getSenha().equals("")) {
                 String senhaAntiga = ud.getById(usuario.getId()).getSenha();
                 usuario.setSenha(senhaAntiga);
             }

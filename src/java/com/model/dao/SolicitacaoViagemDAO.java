@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.dao;
 
 import com.jdbc.ConnectionFactory;
@@ -22,9 +18,9 @@ import java.util.List;
  * @author Usuario
  */
 public class SolicitacaoViagemDAO {
-    
+
     private Connection connection;
-    
+
     public SolicitacaoViagemDAO() {
         try {
             this.connection = new ConnectionFactory().getConnection();
@@ -32,18 +28,18 @@ public class SolicitacaoViagemDAO {
             e.printStackTrace();
         }
     }
-    
+
     public void inserir(SolicitacaoViagem solicitacao) {
         String sql = "insert into solicitacao_viagem "
                 + "(numero_transportados, servidores, data_saida, hora_saida, "
                 + "local_saida, data_retorno, hora_retorno, local_retorno, "
                 + "percurso, objetivo_viagem, id_veiculo, id_responsavel_solicitacao, "
-                + "id_responsavel_autorizante) values (?,?,?,?,?,?,?,?,?,?,?," 
+                + "id_responsavel_autorizante) values (?,?,?,?,?,?,?,?,?,?,?,"
                 + "?, ?)";
-        
+
         String sql2 = "insert into passageiro_solicitacao_viagem "
                 + "(id_passageiro, id_solicitacao_viagem) values (?, ?)";
-        
+
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, solicitacao.getNumero());
@@ -59,15 +55,15 @@ public class SolicitacaoViagemDAO {
             stmt.setInt(11, solicitacao.getVeiculo().getId());
             stmt.setInt(12, solicitacao.getSolicitante().getId());
             stmt.setInt(13, solicitacao.getAutorizante().getId());
-            
+
             stmt.execute();
             ResultSet rsid = stmt.getGeneratedKeys();
             rsid.next();
             Integer gid = rsid.getInt(1);
             stmt.close();
-            
+
             List<Passageiro> passageiros = solicitacao.getPassageiros();
-            for (Passageiro passageiro: passageiros) {
+            for (Passageiro passageiro : passageiros) {
                 if (passageiro.getIdPassageiro() == null) {
                     Passageiro teste = new PassageiroDAO().getByRG(passageiro.getRg());
                     if (teste == null) {
@@ -82,28 +78,27 @@ public class SolicitacaoViagemDAO {
                     stmt.setInt(2, id3);
                     stmt.execute();
                     stmt.close();
-                    
+
                 }
-                
+
             }
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
-    
+
     public void alterar(SolicitacaoViagem solicitacao) {
         String sql = "update solicitacao_viagem set"
                 + "numero_transportados=?, servidores=?, data_saida=?, hora_saida=?, "
                 + "local_saida=?, data_retorno=?, hora_retorno=?, local_retorno=?, "
                 + "percurso=?, objetivo_viagem=?, id_veiculo=?, id_responsavel_solicitacao=?, "
                 + "id_responsavel_autorizante=? where id_solcitacao_viagem=? ";
-        
+
         String sql2 = "insert into passageiro_solicitacao_viagem "
                 + "(id_passageiro, id_solicitacao_viagem) values (?, ?)";
         String sql3 = "select * from passageiro_solicitacao_viagem";
-        
+
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setInt(1, solicitacao.getNumero());
@@ -122,29 +117,28 @@ public class SolicitacaoViagemDAO {
             stmt.setInt(14, solicitacao.getId());
             stmt.execute();
             stmt.close();
-            
+
             List<Passageiro> passageiros = solicitacao.getPassageiros();
-            for (Passageiro passageiro: passageiros) {
+            for (Passageiro passageiro : passageiros) {
                 stmt = this.connection.prepareStatement(sql2);
                 stmt.setInt(1, passageiro.getIdPassageiro());
                 stmt.setInt(2, solicitacao.getId());
                 stmt.execute();
                 stmt.close();
             }
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
-    
+
     public List<SolicitacaoViagem> getSolicitacoes() throws Exception {
         String sql = "select * from solicitacao_viagem";
         String sql2 = "select * from passageiro_solicitacao_viagem where "
                 + "id_solicitacao_viagem = ?";
         String sql4 = "select * from usuario where id_usuario=?";
         List<SolicitacaoViagem> solicitacoes = new ArrayList<SolicitacaoViagem>();
-        
+
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -189,18 +183,17 @@ public class SolicitacaoViagemDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return null;
     }
-    
-    
+
     public SolicitacaoViagem getById(Integer id) {
         String sql = "select * from solicitacao_viagem";
         String sql2 = "select * from passageiro_solicitacao_viagem where "
                 + "id_solicitacao_viagem = ?";
         String sql4 = "select * from usuario where id_usuario=?";
         //List<SolicitacaoViagem> solicitacoes = new ArrayList<SolicitacaoViagem>();
-        
+
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -245,8 +238,7 @@ public class SolicitacaoViagemDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return null;
     }
-    
 }

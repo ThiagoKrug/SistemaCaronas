@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.entity;
 
 import java.util.ArrayList;
@@ -15,37 +11,28 @@ import java.util.List;
  * @author Usuario
  */
 public class SolicitacaoViagem {
-    
+
     private Integer id;
-    
     private Calendar dataSaida;
     private Calendar dataRetorno;
     private Calendar horaSaida;
     private Calendar horaRetorno;
-    
     private String objetivo;
     private String percurso;
-    
     private String localSaida;
     private String localRetorno;
-    
     private Usuario autorizante;
     private Usuario solicitante;
-    
     private Integer numero;
     private Boolean servidores;
-    
     private Veiculo veiculo;
-    
     private String status;
-    
     private List<Passageiro> passageiros;
 
-    
-    
     public SolicitacaoViagem() {
         this.passageiros = new ArrayList<Passageiro>();
     }
+
     /**
      * @return the id
      */
@@ -64,8 +51,9 @@ public class SolicitacaoViagem {
      * @return the dataSaida
      */
     public Date getDataSaida() {
-        if (dataSaida != null)
+        if (dataSaida != null) {
             return dataSaida.getTime();
+        }
         return null;
     }
 
@@ -81,8 +69,9 @@ public class SolicitacaoViagem {
      * @return the dataRetorno
      */
     public Date getDataRetorno() {
-        if (dataRetorno != null)
+        if (dataRetorno != null) {
             return dataRetorno.getTime();
+        }
         return null;
     }
 
@@ -98,8 +87,9 @@ public class SolicitacaoViagem {
      * @return the horaSaida
      */
     public Date getHoraSaida() {
-        if (horaSaida != null)
+        if (horaSaida != null) {
             return horaSaida.getTime();
+        }
         return null;
     }
 
@@ -115,8 +105,9 @@ public class SolicitacaoViagem {
      * @return the horaRetorno
      */
     public Date getHoraRetorno() {
-        if (horaRetorno != null)
+        if (horaRetorno != null) {
             return horaRetorno.getTime();
+        }
         return null;
     }
 
@@ -281,8 +272,4 @@ public class SolicitacaoViagem {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    
-    
-    
 }

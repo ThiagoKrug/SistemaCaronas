@@ -15,21 +15,21 @@ import java.util.List;
  * @author Usuario
  */
 public class UsuarioDAO {
-    
+
     private Connection connection;
-    
+
     public UsuarioDAO() {
         try {
             this.connection = new ConnectionFactory().getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
     public Usuario getById(Integer id) {
         String sql = "select * from usuario where id_usuario=?";
-        
+
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setInt(1, id);
@@ -53,15 +53,14 @@ public class UsuarioDAO {
         }
         return null;
     }
-    
-    
+
     public List<Usuario> getUsuarios() {
         String sql = "select * from usuario";
         List<Usuario> usuarios = new ArrayList<Usuario>();
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            
+
             while (rs.next()) {
                 Usuario usuario = new Usuario();
                 usuario.setEmail(rs.getString("email"));
@@ -72,9 +71,9 @@ public class UsuarioDAO {
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setTelefone(rs.getString("telefone"));
                 usuario.setUsername(rs.getString("nome_usuario"));
-                
+
                 TipoUsuario tipo = new TipoUsuarioDAO().getById(rs.getInt("id_tipo_usuario"));
-                
+
                 usuario.setTipo(tipo);
                 usuarios.add(usuario);
             }
@@ -83,15 +82,14 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
-    
-    
+
     public void inserir(Usuario usuario) {
         String sql = "insert into usuario ("
                 + "id_tipo_usuario, nome, rg, nome_usuario, numero_servidor, "
                 + "senha, telefone, email) values (?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            
+
             stmt.setInt(1, usuario.getTipo().getId());
             stmt.setString(2, usuario.getNome());
             stmt.setString(3, usuario.getRg());
@@ -102,20 +100,19 @@ public class UsuarioDAO {
             stmt.setString(8, usuario.getEmail());
             stmt.execute();
             stmt.close();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
-    
+
     public void alterar(Usuario usuario) {
         String sql = "update usuario set "
                 + "id_tipo_usuario=?, nome=?, rg=?, nome_usuario=?, numero_servidor=?, "
                 + "senha=?, telefone=?, email=? where id_usuario=?;";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            
+
             stmt.setInt(1, usuario.getTipo().getId());
             stmt.setString(2, usuario.getNome());
             stmt.setString(3, usuario.getRg());
@@ -127,12 +124,12 @@ public class UsuarioDAO {
             stmt.setInt(9, usuario.getId());
             stmt.execute();
             stmt.close();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
+
     public void deletar(Usuario usuario) {
         String sql = "delete from usuario where id_usuario=?";
         try {
@@ -144,5 +141,4 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
-    
 }

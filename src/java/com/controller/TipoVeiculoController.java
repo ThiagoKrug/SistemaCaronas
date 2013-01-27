@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.controller;
 
 import com.model.entity.TipoVeiculo;
@@ -17,16 +13,15 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class TipoVeiculoController {
+
     private TipoVeiculo tipoVeiculo;
     private List<TipoVeiculo> tiposVeiculos;
-    
+
     public TipoVeiculoController() {
         this.tipoVeiculo = new TipoVeiculo();
         this.tiposVeiculos = new TipoVeiculoDAO().getTiposVeiculos();
     }
 
-    
-    
     /**
      * @return the tipoVeiculo
      */
@@ -54,6 +49,4 @@ public class TipoVeiculoController {
     public void setTiposVeiculos(List<TipoVeiculo> tiposVeiculos) {
         this.tiposVeiculos = tiposVeiculos;
     }
-    
-    
 }

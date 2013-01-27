@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.controller;
 
 import com.model.dao.PassageiroDAO;
@@ -17,30 +13,30 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class PassageiroController {
+
     private Passageiro passageiro;
     private List<Passageiro> passageiros;
     private Integer id;
-    
+
     public PassageiroController() {
         this.passageiro = new Passageiro();
         this.passageiros = new PassageiroDAO().getPassageiros();
     }
-    
+
     public String salvar() {
         if (this.getPassageiro().getIdPassageiro() == null) {
             new PassageiroDAO().inserir(this.getPassageiro());
-        }
-        else {
+        } else {
             new PassageiroDAO().altera(this.getPassageiro());
         }
         return "listar";
     }
-    
+
     public String editar(Integer id) {
         this.setPassageiro(new PassageiroDAO().getById(id));
         return "formulario";
     }
-    
+
     public String deletar(Integer id) {
         PassageiroDAO dao = new PassageiroDAO();
         this.passageiro = dao.getById(id);
@@ -90,5 +86,4 @@ public class PassageiroController {
     public void setPassageiros(List<Passageiro> passageiros) {
         this.passageiros = passageiros;
     }
-    
 }

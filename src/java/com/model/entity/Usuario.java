@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.entity;
 
 /**
@@ -9,7 +5,7 @@ package com.model.entity;
  * @author Usuario
  */
 public class Usuario {
-    
+
     private Integer id;
     private TipoUsuario tipo;
     private String nome;
@@ -145,5 +141,4 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
 }

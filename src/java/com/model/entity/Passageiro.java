@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.entity;
 
 import com.controller.SolicitacaoViagemController;
@@ -11,6 +7,7 @@ import com.controller.SolicitacaoViagemController;
  * @author Usuario
  */
 public class Passageiro {
+
     private Integer idPassageiro;
     private String rg;
     private String nome;
@@ -18,16 +15,15 @@ public class Passageiro {
     private Boolean disabled;
     private SolicitacaoViagemController gambi = null;
 
-    
     public Passageiro() {
         this.disabled = false;
     }
-    
+
     public Passageiro(SolicitacaoViagemController c) {
         this.disabled = false;
         this.gambi = c;
     }
-    
+
     /**
      * @return the rg
      */
@@ -100,7 +96,4 @@ public class Passageiro {
     public void setDisabled(Boolean disabled) {
         this.disabled = disabled;
     }
-    
-    
-    
 }

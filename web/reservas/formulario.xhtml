@@ -93,10 +93,10 @@
                 <h:commandButton value="Salvar" action="#{solicitacaoViagemController.salvar()}" />
             </div>
         </h:form>
-        
+
         <h:form rendered="#{solicitacaoViagemController.listingMode}">
             <h:commandButton value="Solicitar Viagem" action="/reservas/formulario.jsf" />
-            
+
             <h:dataTable id="viagens" rendered="#{! empty solicitacaoViagemController.viagens}" var="viagem" value="#{solicitacaoViagemController.viagens}" >
                 <h:column>
                     <f:facet name="header" ><h:outputText value="Id" /></f:facet>

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.dao;
 
 import com.jdbc.ConnectionFactory;
@@ -18,21 +14,21 @@ import java.util.List;
  * @author Usuario
  */
 public class TipoUsuarioDAO {
-    
+
     private Connection connection;
-    
+
     public TipoUsuarioDAO() {
         try {
             this.connection = new ConnectionFactory().getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
     public TipoUsuario getById(Integer id) {
         String sql = "select * from tipo_usuario where id_tipo_usuario=?";
-        
+
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setInt(1, id);
@@ -48,7 +44,7 @@ public class TipoUsuarioDAO {
         }
         return null;
     }
-    
+
     public List<TipoUsuario> getTiposUsuarios() {
         String sql = "select * from tipo_usuario";
         List<TipoUsuario> usuarios = new ArrayList<TipoUsuario>();
@@ -59,7 +55,7 @@ public class TipoUsuarioDAO {
                 TipoUsuario usuario = new TipoUsuario();
                 usuario.setId(rs.getInt("id_tipo_usuario"));
                 usuario.setTipoUsuario(rs.getString("tipo_usuario"));
-                
+
                 usuarios.add(usuario);
             }
         } catch (SQLException e) {
@@ -67,5 +63,4 @@ public class TipoUsuarioDAO {
         }
         return usuarios;
     }
-    
 }

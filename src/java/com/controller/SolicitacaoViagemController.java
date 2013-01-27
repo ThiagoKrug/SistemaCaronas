@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.controller;
 
 import com.model.dao.PassageiroDAO;
@@ -26,6 +22,7 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @ViewScoped
 public class SolicitacaoViagemController {
+
     private SolicitacaoViagem solicitacaoviagem;
     private List<SolicitacaoViagem> viagens;
     private String veiculoSelect;
@@ -37,7 +34,7 @@ public class SolicitacaoViagemController {
     private List<String> usuarioss;
     private Integer numero;
     private Boolean listingMode = true;
-    
+
     public SolicitacaoViagemController() throws Exception {
         this.solicitacaoviagem = new SolicitacaoViagem();
         this.viagens = new SolicitacaoViagemDAO().getSolicitacoes();
@@ -47,85 +44,82 @@ public class SolicitacaoViagemController {
         this.veiculoss = new ArrayList<String>();
         this.usuarios = new UsuarioDAO().getUsuarios();
         this.usuarioss = new ArrayList<String>();
-        for (Veiculo veiculoi: this.veiculos) {
+        for (Veiculo veiculoi : this.veiculos) {
             this.veiculoss.add(veiculoi.getPlaca());
         }
-        for (Usuario usuarioi: usuarios) {
+        for (Usuario usuarioi : usuarios) {
             usuarioss.add(usuarioi.getNome());
         }
     }
 
-    
     public String salvar() {
         if (this.getSolicitacaoviagem().getId() == null) {
             Veiculo v = null;
             Usuario u = null;
             Usuario u2 = null;
-            
-            for (Veiculo veiculo: getVeiculos()) {
+
+            for (Veiculo veiculo : getVeiculos()) {
                 if (veiculo.getPlaca().equals(this.getVeiculoSelect())) {
                     v = veiculo;
                 }
             }
-            
-            for (Usuario usuario: getUsuarios()) {
+
+            for (Usuario usuario : getUsuarios()) {
                 if (usuario.getNome().equals(this.getUsuarioSolSelect())) {
                     u = usuario;
                 }
             }
-            
-            for (Usuario usuario: getUsuarios()) {
+
+            for (Usuario usuario : getUsuarios()) {
                 if (usuario.getNome().equals(this.getUsuarioAutSelect())) {
                     u2 = usuario;
                 }
             }
-            
+
             this.getSolicitacaoviagem().setAutorizante(u2);
             this.getSolicitacaoviagem().setSolicitante(u);
             this.getSolicitacaoviagem().setVeiculo(v);
             this.getSolicitacaoviagem().setNumero(numero);
             new SolicitacaoViagemDAO().inserir(getSolicitacaoviagem());
-        }
-        
-        else {
+        } else {
             Veiculo v = null;
             Usuario u = null;
             Usuario u2 = null;
-            
-            for (Veiculo veiculo: getVeiculos()) {
+
+            for (Veiculo veiculo : getVeiculos()) {
                 if (veiculo.getPlaca().equals(this.getVeiculoSelect())) {
                     v = veiculo;
                 }
             }
-            
-            for (Usuario usuario: getUsuarios()) {
+
+            for (Usuario usuario : getUsuarios()) {
                 if (usuario.getNome().equals(this.getUsuarioSolSelect())) {
                     u = usuario;
                 }
             }
-            
-            for (Usuario usuario: getUsuarios()) {
+
+            for (Usuario usuario : getUsuarios()) {
                 if (usuario.getNome().equals(this.getUsuarioAutSelect())) {
                     u2 = usuario;
                 }
             }
-            
+
             this.getSolicitacaoviagem().setAutorizante(u2);
             this.getSolicitacaoviagem().setSolicitante(u);
             this.getSolicitacaoviagem().setVeiculo(v);
             this.getSolicitacaoviagem().setNumero(numero);
             new SolicitacaoViagemDAO().alterar(getSolicitacaoviagem());
         }
-        
+
         return "listar";
     }
-    
+
     public String editar(Integer id) throws Exception {
         this.solicitacaoviagem = new SolicitacaoViagemDAO().getById(id);
         //throw new Exception("Objetivo: " + this.solicitacaoviagem.getObjetivo());
         return "formulario";
     }
-    
+
     @PostConstruct
     void initialiseSession() {
         FacesContext.getCurrentInstance().getExternalContext().getSession(true);
@@ -276,7 +270,7 @@ public class SolicitacaoViagemController {
         this.solicitacaoviagem.setPassageiros(passageiros);
         //throw new Exception("Whoopi! " + passageiros.size() + numero);
     }
-    
+
     public void adjust(Passageiro passageiro) {
         List<Passageiro> passageiros = new PassageiroDAO().getByNome(
                 passageiro.getNome());
@@ -302,9 +296,4 @@ public class SolicitacaoViagemController {
     public void setListingMode(Boolean listingMode) {
         this.listingMode = listingMode;
     }
-    
-    
-    
-    
-    
 }

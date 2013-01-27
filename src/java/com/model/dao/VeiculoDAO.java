@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model.dao;
 
 import com.jdbc.ConnectionFactory;
@@ -18,24 +14,25 @@ import java.util.List;
  * @author Usuario
  */
 public class VeiculoDAO {
+
     private Connection connection;
-    
+
     public VeiculoDAO() {
         try {
             this.connection = new ConnectionFactory().getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
     public void inserir(Veiculo veiculo) {
         String sql = "insert into veiculo (id_tipo_veiculo, "
                 + "placa, quilometragem, capacidade_passageiro, "
                 + "cor) values (?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            
+
             stmt.setInt(1, veiculo.getTipoVeiculo().getId());
             stmt.setString(2, veiculo.getPlaca());
             stmt.setFloat(3, veiculo.getQuilometragem());
@@ -43,12 +40,12 @@ public class VeiculoDAO {
             stmt.setString(5, veiculo.getCor());
             stmt.execute();
             stmt.close();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
+
     public Veiculo getById(Integer id) {
         String sql = "select * from veiculo where id=?";
         try {
@@ -71,12 +68,11 @@ public class VeiculoDAO {
         }
         return null;
     }
-    
-    
+
     public void altera(Veiculo veiculo) {
-        String sql = "update veiculo set id_tipo_veiculo=?, placa=?," +
-                "quilometragem=?, capacidade_passageiro=?, cor=? where id=?";
-        
+        String sql = "update veiculo set id_tipo_veiculo=?, placa=?,"
+                + "quilometragem=?, capacidade_passageiro=?, cor=? where id=?";
+
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, veiculo.getTipoVeiculo().getId());
@@ -89,10 +85,9 @@ public class VeiculoDAO {
             stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
-        } 
+        }
     }
-    
-    
+
     public List<Veiculo> getVeiculos() {
         String sql = "select * from veiculo";
         List<Veiculo> veiculos = new ArrayList<Veiculo>();
@@ -114,7 +109,7 @@ public class VeiculoDAO {
         }
         return veiculos;
     }
-    
+
     public void deletar(Veiculo veiculo) {
         String sql = "delete from veiculo where id=?";
         try {
@@ -126,5 +121,4 @@ public class VeiculoDAO {
             e.printStackTrace();
         }
     }
-    
 }
