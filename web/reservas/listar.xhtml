@@ -7,7 +7,7 @@
 
     <ui:define name="content">
         <h:form>
-            <h:commandButton value="Solicitar Viagem" action="/reservas/formulario.jsf" />
+            <h:commandButton value="Solicitar Viagem" action="formulario" />
 
             <h:dataTable id="viagens" rendered="#{! empty solicitacaoViagemController.viagens}" var="viagem" value="#{solicitacaoViagemController.viagens}" >
                 <h:column>
@@ -31,7 +31,14 @@
                     <h:outputText value="#{viagem.dataSaida}" />
                 </h:column>
                 <h:column>
+                    <f:facet name="header" ><h:outputText value="Status" /></f:facet>
+                    <h:outputText value="#{viagem.status}" />
+                </h:column>
+                <h:column>
                     <f:facet name="header" ><h:outputText value="Comandos" /></f:facet>
+                    <h:commandButton rendered="#{empty viagem.status}" value="Cancelar" >
+                        <f:ajax listener="#{solicitacaoViagemController.cancelar(viagem.id)}" event="click"/>
+                    </h:commandButton>
                     <h:commandButton value="Editar" action="#{solicitacaoViagemController.editar(viagem.id)}">
                         <f:param name="id" value="#{viagem.id}" />
                     </h:commandButton>

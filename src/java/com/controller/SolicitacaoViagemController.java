@@ -6,6 +6,7 @@ import com.model.dao.UsuarioDAO;
 import com.model.dao.VeiculoDAO;
 import com.model.entity.Passageiro;
 import com.model.entity.SolicitacaoViagem;
+import com.model.entity.StatusSolicitacaoViagem;
 import com.model.entity.Usuario;
 import com.model.entity.Veiculo;
 import java.util.ArrayList;
@@ -128,6 +129,19 @@ public class SolicitacaoViagemController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        return "listar";
+    }
+    
+    public String cancelar(Integer id) {
+        SolicitacaoViagemDAO sv = new SolicitacaoViagemDAO();
+        this.solicitacaoviagem = sv.getById(id);
+        try {
+            this.solicitacaoviagem.setStatus(StatusSolicitacaoViagem.CANCELADO.toString());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        System.out.println(solicitacaoviagem.getNumero());
+        sv.alterar(solicitacaoviagem);
         return "listar";
     }
 

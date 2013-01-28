@@ -269,7 +269,17 @@ public class SolicitacaoViagem {
     /**
      * @param status the status to set
      */
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String status) throws Exception {
+        if (status == null) {
+            this.status = status;
+        } else {
+            if (status.equalsIgnoreCase(StatusSolicitacaoViagem.CANCELADO.toString())
+                    || status.equalsIgnoreCase(StatusSolicitacaoViagem.SOLICITADO.toString())
+                    || status.equalsIgnoreCase("")) {
+                this.status = status;
+            } else {
+                throw new Exception("Falha ao setar status da solicitação viagem: status inválido. Status: " + status);
+            }
+        }
     }
 }
