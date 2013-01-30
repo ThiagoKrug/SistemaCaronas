@@ -71,7 +71,12 @@ public class SolicitacaoViagemDAOTest {
         /**
          * Forçando erro, pois não existem dado na instância.
          */
-        instance.alterar(solicitacao);
+        try {
+            instance.alterar(solicitacao);
+            assertTrue(false);
+        } catch (NullPointerException e) {
+            assertTrue("Deu exceção =D", true);
+        }
     }
 
     /**
