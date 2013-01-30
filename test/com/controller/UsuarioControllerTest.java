@@ -43,12 +43,14 @@ public class UsuarioControllerTest {
     @Test
     public void testSalvar() throws Exception {
         System.out.println("salvar");
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioController'");
         UsuarioController instance = new UsuarioController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'UsuarioController' não pode ser criada! <<<", instance);
+        
+        String expResult = "listar";
         String result = instance.salvar();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -57,13 +59,15 @@ public class UsuarioControllerTest {
     @Test
     public void testEditar() throws Exception {
         System.out.println("editar");
-        Integer id = null;
+        Integer id = 1;
+        
+        System.out.println("Testando a criação de Intâcia: 'UsuarioController'");        
         UsuarioController instance = new UsuarioController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'UsuarioController' não pode ser criada! <<<", instance);
+        
+        String expResult = "formulario";
         String result = instance.editar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,12 +76,14 @@ public class UsuarioControllerTest {
     @Test
     public void testDeletar() throws Exception {
         System.out.println("deletar");
-        Integer id = null;
+        Integer id = 1;
+        
+        System.out.println("Testando a criação de Intâcia: 'UsuarioController'");        
         UsuarioController instance = new UsuarioController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'UsuarioController' não pode ser criada! <<<", instance);
+        
+        String expResult = "listar";
         String result = instance.deletar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

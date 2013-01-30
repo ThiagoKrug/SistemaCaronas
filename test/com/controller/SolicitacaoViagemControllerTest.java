@@ -19,6 +19,8 @@ import static org.junit.Assert.*;
  */
 public class SolicitacaoViagemControllerTest {
 
+    private SolicitacaoViagem solicitacaoviagem;
+
     public SolicitacaoViagemControllerTest() {
     }
 
@@ -44,12 +46,14 @@ public class SolicitacaoViagemControllerTest {
     @Test
     public void testSalvar() throws Exception {
         System.out.println("salvar");
+
+        System.out.println("Testando a criação de Intâcia: 'SolicitacaoViagemController'");
         SolicitacaoViagemController instance = new SolicitacaoViagemController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'SolicitacaoViagemController' não pode ser criada! <<<", instance);
+
+        String expResult = "listar";
         String result = instance.salvar();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,13 +62,15 @@ public class SolicitacaoViagemControllerTest {
     @Test
     public void testEditar() throws Exception {
         System.out.println("editar");
-        Integer id = null;
+        Integer id = 1;
+
+        System.out.println("Testando a criação de Intâcia: 'SolicitacaoViagemController'");
         SolicitacaoViagemController instance = new SolicitacaoViagemController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'SolicitacaoViagemController' não pode ser criada! <<<", instance);
+
+        String expResult = "formulario";
         String result = instance.editar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,13 +79,15 @@ public class SolicitacaoViagemControllerTest {
     @Test
     public void testDeletar() throws Exception {
         System.out.println("deletar");
-        Integer id = null;
+        Integer id = 1;
+
+        System.out.println("Testando a criação de Intâcia: 'SolicitacaoViagemController'");
         SolicitacaoViagemController instance = new SolicitacaoViagemController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'SolicitacaoViagemController' não pode ser criada! <<<", instance);
+
+        String expResult = "listar";
         String result = instance.deletar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,13 +96,15 @@ public class SolicitacaoViagemControllerTest {
     @Test
     public void testCancelar() throws Exception {
         System.out.println("cancelar");
-        Integer id = null;
+        Integer id = 1;
+
+        System.out.println("Testando a criação de Intâcia: 'SolicitacaoViagemController'");
         SolicitacaoViagemController instance = new SolicitacaoViagemController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'SolicitacaoViagemController' não pode ser criada! <<<", instance);
+
+        String expResult = "listar";
         String result = instance.cancelar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -103,10 +113,12 @@ public class SolicitacaoViagemControllerTest {
     @Test
     public void testInitialiseSession() throws Exception {
         System.out.println("initialiseSession");
+
+        System.out.println("Testando a criação de Intâcia: 'SolicitacaoViagemController'");
         SolicitacaoViagemController instance = new SolicitacaoViagemController();
+        assertNotNull(">>> A instância da Classe 'SolicitacaoViagemController' não pode ser criada! <<<", instance);
+
         instance.initialiseSession();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -116,12 +128,14 @@ public class SolicitacaoViagemControllerTest {
     @Test
     public void testGetSolicitacaoviagem() throws Exception {
         System.out.println("getSolicitacaoviagem");
+
+        System.out.println("Testando a criação de Intâcia: 'SolicitacaoViagemController'");
         SolicitacaoViagemController instance = new SolicitacaoViagemController();
-        SolicitacaoViagem expResult = null;
+        assertNotNull(">>> A instância da Classe 'SolicitacaoViagemController' não pode ser criada! <<<", instance);
+
+        SolicitacaoViagem expResult = this.solicitacaoviagem;
         SolicitacaoViagem result = instance.getSolicitacaoviagem();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -131,10 +145,12 @@ public class SolicitacaoViagemControllerTest {
     @Test
     public void testSetSolicitacaoviagem() throws Exception {
         System.out.println("setSolicitacaoviagem");
-        SolicitacaoViagem solicitacaoviagem = null;
+        SolicitacaoViagem solictViagem = this.solicitacaoviagem;
+
+        System.out.println("Testando a criação de Intâcia: 'SolicitacaoViagemController'");
         SolicitacaoViagemController instance = new SolicitacaoViagemController();
-        instance.setSolicitacaoviagem(solicitacaoviagem);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(">>> A instância da Classe 'SolicitacaoViagemController' não pode ser criada! <<<", instance);
+
+        instance.setSolicitacaoviagem(solictViagem);
     }
 }

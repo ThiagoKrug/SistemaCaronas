@@ -17,22 +17,22 @@ import static org.junit.Assert.*;
  * @since 28/01/2013
  */
 public class PassageiroControllerTest {
-    
+
     public PassageiroControllerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,12 +43,13 @@ public class PassageiroControllerTest {
     @Test
     public void testSalvar() {
         System.out.println("salvar");
+        System.out.println("Testando a criação de Intâcia: 'PassageiroController'");
         PassageiroController instance = new PassageiroController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'PassageiroController' não pode ser criada! <<<", instance);
+
+        String expResult = "listar";
         String result = instance.salvar();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(">>> Falha na igualdade no método testSalvar! <<<", expResult, result);
     }
 
     /**
@@ -57,13 +58,14 @@ public class PassageiroControllerTest {
     @Test
     public void testEditar() {
         System.out.println("editar");
-        Integer id = null;
+        int id = 1;
+        System.out.println("Testando a criação de Intâcia: 'PassageiroController'");
         PassageiroController instance = new PassageiroController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'PassageiroController' não pode ser criada! <<<", instance);
+
+        String expResult = "formulario";
         String result = instance.editar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,12 +74,13 @@ public class PassageiroControllerTest {
     @Test
     public void testDeletar() {
         System.out.println("deletar");
-        Integer id = null;
+        Integer id = 1;
+        System.out.println("Testando a criação de Intâcia: 'PassageiroController'");
         PassageiroController instance = new PassageiroController();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'PassageiroController' não pode ser criada! <<<", instance);
+
+        String expResult = "listar";
         String result = instance.deletar(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

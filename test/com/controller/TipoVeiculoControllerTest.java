@@ -4,92 +4,51 @@
  */
 package com.controller;
 
-import com.model.entity.TipoVeiculo;
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
+ * Classe pai contem apenas métdos Set e Get.
+ * Aqui então testamos apenas se a instância da classe pode ser gerada corretamente.
  *
  * @author Juliano Macedo
  * @since 28/01/2013
  */
 public class TipoVeiculoControllerTest {
-    
+
     public TipoVeiculoControllerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     /**
-     * Test of getTipoVeiculo method, of class TipoVeiculoController.
+     * Método que teste se a instância da classe TipoVeiculoController pode ser
+     * criada criada com sucesso.
      */
     @Test
-    public void testGetTipoVeiculo() {
-        System.out.println("getTipoVeiculo");
-        TipoVeiculoController instance = new TipoVeiculoController();
-        TipoVeiculo expResult = null;
-        TipoVeiculo result = instance.getTipoVeiculo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    public void testTipoVeiculoController() {
+        System.out.println("testeTipoVeiculoController");
 
-    /**
-     * Test of setTipoVeiculo method, of class TipoVeiculoController.
-     */
-    @Test
-    public void testSetTipoVeiculo() {
-        System.out.println("setTipoVeiculo");
-        TipoVeiculo tipoVeiculo = null;
+        System.out.println("Testando a criação de Intâcia: 'TipoVeiculoController'");
         TipoVeiculoController instance = new TipoVeiculoController();
-        instance.setTipoVeiculo(tipoVeiculo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getTiposVeiculos method, of class TipoVeiculoController.
-     */
-    @Test
-    public void testGetTiposVeiculos() {
-        System.out.println("getTiposVeiculos");
-        TipoVeiculoController instance = new TipoVeiculoController();
-        List expResult = null;
-        List result = instance.getTiposVeiculos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setTiposVeiculos method, of class TipoVeiculoController.
-     */
-    @Test
-    public void testSetTiposVeiculos() {
-        System.out.println("setTiposVeiculos");
-        List<TipoVeiculo> tiposVeiculos = null;
-        TipoVeiculoController instance = new TipoVeiculoController();
-        instance.setTiposVeiculos(tiposVeiculos);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(">>> A instância da Classe 'TipoVeiculoController' não pode ser criada! <<<", instance);
     }
 }
