@@ -19,22 +19,22 @@ import static org.junit.Assert.*;
  * @since 28/01/2013
  */
 public class UsuarioConverterTest {
-    
+
     public UsuarioConverterTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -48,12 +48,14 @@ public class UsuarioConverterTest {
         FacesContext context = null;
         UIComponent component = null;
         String value = "";
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioConverter'");
         UsuarioConverter instance = new UsuarioConverter();
+        assertNotNull(">>> A instância da Classe 'UsuarioConverter' não pode ser criada! <<<", instance);
+
         Object expResult = null;
         Object result = instance.getAsObject(context, component, value);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -65,11 +67,13 @@ public class UsuarioConverterTest {
         FacesContext context = null;
         UIComponent component = null;
         Object value = null;
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioConverter'");
         UsuarioConverter instance = new UsuarioConverter();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'UsuarioConverter' não pode ser criada! <<<", instance);
+
+        Object expResult = null;
         String result = instance.getAsString(context, component, value);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

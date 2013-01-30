@@ -48,12 +48,14 @@ public class TipoUsuarioConverterTest {
         FacesContext context = null;
         UIComponent component = null;
         String value = "";
+        
+        System.out.println("Testando a criação de Intâcia: 'TipoUsuarioConverter'");        
         TipoUsuarioConverter instance = new TipoUsuarioConverter();
+        assertNotNull(">>> A instância da Classe 'TipoUsuarioConverter' não pode ser criada! <<<", instance);
+        
         Object expResult = null;
         Object result = instance.getAsObject(context, component, value);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -65,11 +67,13 @@ public class TipoUsuarioConverterTest {
         FacesContext context = null;
         UIComponent component = null;
         Object value = null;
+        
+        System.out.println("Testando a criação de Intâcia: 'TipoUsuarioConverter'");                
         TipoUsuarioConverter instance = new TipoUsuarioConverter();
-        String expResult = "";
+        assertNotNull(">>> A instância da Classe 'TipoUsuarioConverter' não pode ser criada! <<<", instance);
+        
+        Object expResult = null;
         String result = instance.getAsString(context, component, value);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }
