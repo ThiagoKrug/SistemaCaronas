@@ -5,6 +5,7 @@
 package com.model.dao;
 
 import com.model.entity.TipoVeiculo;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,22 +20,22 @@ import static org.junit.Assert.*;
  * @since 28/01/2013
  */
 public class TipoVeiculoDAOTest {
-    
+
     public TipoVeiculoDAOTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -45,13 +46,16 @@ public class TipoVeiculoDAOTest {
     @Test
     public void testGetById() {
         System.out.println("getById");
-        Integer id = null;
+        Integer id = 1;
+
+        System.out.println("Testando a criação de Intâcia: 'TipoVeiculoDAO'");
         TipoVeiculoDAO instance = new TipoVeiculoDAO();
+        assertNotNull(">>> A instância da Classe 'TipoVeiculoDAO' não pode ser criada! <<<", instance);
+
+
         TipoVeiculo expResult = null;
         TipoVeiculo result = instance.getById(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -60,11 +64,13 @@ public class TipoVeiculoDAOTest {
     @Test
     public void testGetTiposVeiculos() {
         System.out.println("getTiposVeiculos");
+
+        System.out.println("Testando a criação de Intâcia: 'TipoUsuarioDAO'");
         TipoVeiculoDAO instance = new TipoVeiculoDAO();
-        List expResult = null;
+        assertNotNull(">>> A instância da Classe 'TipoVeiculoDAO' não pode ser criada! <<<", instance);
+
+        List<TipoVeiculo> expResult = new ArrayList<TipoVeiculo>();
         List result = instance.getTiposVeiculos();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

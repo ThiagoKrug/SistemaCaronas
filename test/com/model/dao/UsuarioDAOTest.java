@@ -5,6 +5,7 @@
 package com.model.dao;
 
 import com.model.entity.Usuario;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,22 +20,22 @@ import static org.junit.Assert.*;
  * @since 28/01/2013
  */
 public class UsuarioDAOTest {
-    
+
     public UsuarioDAOTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -45,13 +46,15 @@ public class UsuarioDAOTest {
     @Test
     public void testGetById() {
         System.out.println("getById");
-        Integer id = null;
+        Integer id = 1;
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioDAO'");
         UsuarioDAO instance = new UsuarioDAO();
+        assertNotNull(">>> A instância da Classe 'UsuarioDAO' não pode ser criada! <<<", instance);
+
         Usuario expResult = null;
         Usuario result = instance.getById(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -60,12 +63,14 @@ public class UsuarioDAOTest {
     @Test
     public void testGetUsuarios() {
         System.out.println("getUsuarios");
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioDAO'");
         UsuarioDAO instance = new UsuarioDAO();
-        List expResult = null;
+        assertNotNull(">>> A instância da Classe 'UsuarioDAO' não pode ser criada! <<<", instance);
+
+        List<Usuario> expResult = new ArrayList<Usuario>();
         List result = instance.getUsuarios();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,11 +79,15 @@ public class UsuarioDAOTest {
     @Test
     public void testInserir() {
         System.out.println("inserir");
-        Usuario usuario = null;
+        Usuario usuario = new Usuario();
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioDAO'");
         UsuarioDAO instance = new UsuarioDAO();
+        assertNotNull(">>> A instância da Classe 'UsuarioDAO' não pode ser criada! <<<", instance);
+        /**
+         * Forçando erro, pois não existem dado na instância.
+         */
         instance.inserir(usuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -87,11 +96,15 @@ public class UsuarioDAOTest {
     @Test
     public void testAlterar() {
         System.out.println("alterar");
-        Usuario usuario = null;
+        Usuario usuario = new Usuario();
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioDAO'");
         UsuarioDAO instance = new UsuarioDAO();
+        assertNotNull(">>> A instância da Classe 'UsuarioDAO' não pode ser criada! <<<", instance);
+        /**
+         * Forçando erro, pois não existem dado na instância.
+         */
         instance.alterar(usuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -100,10 +113,13 @@ public class UsuarioDAOTest {
     @Test
     public void testDeletar() {
         System.out.println("deletar");
-        Usuario usuario = null;
+        Usuario usuario = new Usuario();
+
+        System.out.println("Testando a criação de Intâcia: 'UsuarioDAO'");
         UsuarioDAO instance = new UsuarioDAO();
+        /**
+         * Forçando erro, pois não existem dado na instância.
+         */
         instance.deletar(usuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

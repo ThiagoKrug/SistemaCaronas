@@ -44,11 +44,15 @@ public class VeiculoDAOTest {
     @Test
     public void testInserir() {
         System.out.println("inserir");
-        Veiculo veiculo = null;
+        Veiculo veiculo = new Veiculo();
+
+        System.out.println("Testando a criação de Intâcia: 'VeiculoDAO'");
         VeiculoDAO instance = new VeiculoDAO();
+        assertNotNull(">>> A instância da Classe 'VeiculoDAO' não pode ser criada! <<<", instance);
+        /**
+         * Forçando erro, pois não existem dado na instância.
+         */
         instance.inserir(veiculo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -57,11 +61,15 @@ public class VeiculoDAOTest {
     @Test
     public void testAltera() {
         System.out.println("altera");
-        Veiculo veiculo = null;
+        Veiculo veiculo = new Veiculo();
+
+        System.out.println("Testando a criação de Intâcia: 'VeiculoDAO'");
         VeiculoDAO instance = new VeiculoDAO();
+        assertNotNull(">>> A instância da Classe 'VeiculoDAO' não pode ser criada! <<<", instance);
+        /**
+         * Forçando erro, pois não existem dado na instância.
+         */
         instance.altera(veiculo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,10 +78,14 @@ public class VeiculoDAOTest {
     @Test
     public void testDeletar() {
         System.out.println("deletar");
-        Veiculo veiculo = null;
+        Veiculo veiculo = new Veiculo();
+
+        System.out.println("Testando a criação de Intâcia: 'VeiculoDAO'");
         VeiculoDAO instance = new VeiculoDAO();
+        assertNotNull(">>> A instância da Classe 'VeiculoDAO' não pode ser criada! <<<", instance);
+        /**
+         * Forçando erro, pois não existem dado na instância.
+         */
         instance.deletar(veiculo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

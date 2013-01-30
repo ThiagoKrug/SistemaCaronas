@@ -46,8 +46,6 @@ public class StatusSolicitacaoViagemTest {
         StatusSolicitacaoViagem[] expResult = null;
         StatusSolicitacaoViagem[] result = StatusSolicitacaoViagem.values();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -60,8 +58,6 @@ public class StatusSolicitacaoViagemTest {
         StatusSolicitacaoViagem expResult = null;
         StatusSolicitacaoViagem result = StatusSolicitacaoViagem.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -71,10 +67,8 @@ public class StatusSolicitacaoViagemTest {
     public void testToString() {
         System.out.println("toString");
         StatusSolicitacaoViagem instance = null;
-        String expResult = "";
+        String expResult = "status";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

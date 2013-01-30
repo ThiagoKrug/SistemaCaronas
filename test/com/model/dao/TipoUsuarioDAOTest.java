@@ -5,6 +5,7 @@
 package com.model.dao;
 
 import com.model.entity.TipoUsuario;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,22 +20,22 @@ import static org.junit.Assert.*;
  * @since 28/01/2013
  */
 public class TipoUsuarioDAOTest {
-    
+
     public TipoUsuarioDAOTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -45,13 +46,15 @@ public class TipoUsuarioDAOTest {
     @Test
     public void testGetById() {
         System.out.println("getById");
-        Integer id = null;
+        Integer id = 1;
+
+        System.out.println("Testando a criação de Intâcia: 'TipoUsuarioDAO'");
         TipoUsuarioDAO instance = new TipoUsuarioDAO();
+        assertNotNull(">>> A instância da Classe 'TipoUsuarioDAO' não pode ser criada! <<<", instance);
+
         TipoUsuario expResult = null;
         TipoUsuario result = instance.getById(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -60,11 +63,13 @@ public class TipoUsuarioDAOTest {
     @Test
     public void testGetTiposUsuarios() {
         System.out.println("getTiposUsuarios");
+
+        System.out.println("Testando a criação de Intâcia: 'TipoUsuarioDAO'");
         TipoUsuarioDAO instance = new TipoUsuarioDAO();
-        List expResult = null;
+        assertNotNull(">>> A instância da Classe 'TipoUsuarioDAO' não pode ser criada! <<<", instance);
+
+        List<TipoUsuario> expResult = new ArrayList<TipoUsuario>();
         List result = instance.getTiposUsuarios();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

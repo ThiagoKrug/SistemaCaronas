@@ -11,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
+ * Suite que contem todas as demais suite, ou seja, execute esta suite para
+ * verificar a cobertura total dos testes sobre o sistema.
  *
  * @author Juliano Macedo
  * @since 28/01/2013

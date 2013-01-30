@@ -13,6 +13,8 @@ import org.junit.runners.Suite;
 
 /**
  *
+ * Suite que engloba as demais suites do package com.
+ * 
  * @author Juliano Macedo
  * @since 28/01/2013
  */

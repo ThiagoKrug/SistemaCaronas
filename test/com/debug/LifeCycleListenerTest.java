@@ -4,7 +4,6 @@
  */
 package com.debug;
 
-import javax.faces.event.PhaseEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -42,25 +41,11 @@ public class LifeCycleListenerTest {
      * Test of afterPhase method, of class LifeCycleListener.
      */
     @Test
-    public void testAfterPhase() {
-        System.out.println("afterPhase");
-        PhaseEvent event = null;
-        LifeCycleListener instance = new LifeCycleListener();
-        instance.afterPhase(event);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    public void testLifeCycleListener() {
+        System.out.println("LifeCycleListener");
 
-    /**
-     * Test of beforePhase method, of class LifeCycleListener.
-     */
-    @Test
-    public void testBeforePhase() {
-        System.out.println("beforePhase");
-        PhaseEvent event = null;
+        System.out.println("Testando a criação de Intâcia: 'TipoVeiculoController'");
         LifeCycleListener instance = new LifeCycleListener();
-        instance.beforePhase(event);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(">>> A instância da Classe 'LifeCycleListener' não pode ser criada! <<<", instance);
     }
 }
