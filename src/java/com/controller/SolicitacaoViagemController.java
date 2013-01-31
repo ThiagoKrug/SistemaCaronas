@@ -36,7 +36,7 @@ public class SolicitacaoViagemController {
     private List<Usuario> usuarios;
     private List<String> usuarioss;
     private Integer numero;
-    private Boolean listingMode = true;
+//    private Boolean listingMode = false;
 
     public SolicitacaoViagemController() throws Exception {
         this.solicitacaoviagem = new SolicitacaoViagem();
@@ -143,6 +143,10 @@ public class SolicitacaoViagemController {
         System.out.println(solicitacaoviagem.getNumero());
         sv.alterar(solicitacaoviagem);
         return "listar";
+    }
+    
+    public void remover(Passageiro passageiro) {
+        solicitacaoviagem.getPassageiros().remove(passageiro);
     }
 
     @PostConstruct
@@ -287,16 +291,19 @@ public class SolicitacaoViagemController {
      * @param numero the numero to set
      */
     public void setNumero(Integer numero) throws Exception {
+        
         this.numero = numero;
         List<Passageiro> passageiros = new ArrayList<Passageiro>();
         for (int i = 0; i < numero; i++) {
             passageiros.add(new Passageiro(this));
         }
         this.solicitacaoviagem.setPassageiros(passageiros);
+//        throw new Exception("Passou do Set.");
         //throw new Exception("Whoopi! " + passageiros.size() + numero);
     }
 
-    public void adjust(Passageiro passageiro) {
+    public void adjust(Passageiro passageiro) throws Exception {
+//        throw new Exception("Getting here.");
         List<Passageiro> passageiros = new PassageiroDAO().getByNome(
                 passageiro.getNome());
         if (passageiros.size() == 1) {
@@ -306,19 +313,22 @@ public class SolicitacaoViagemController {
             passageiro.setDisabled(true);
             passageiro.setIdPassageiro(pass.getIdPassageiro());
         }
+        else {
+            passageiro.setDisabled(false);
+        }
     }
 
     /**
      * @return the listingMode
      */
-    public Boolean getListingMode() {
-        return listingMode;
-    }
-
-    /**
-     * @param listingMode the listingMode to set
-     */
-    public void setListingMode(Boolean listingMode) {
-        this.listingMode = listingMode;
-    }
+//    public Boolean getListingMode() {
+//        return listingMode;
+//    }
+//
+//    /**
+//     * @param listingMode the listingMode to set
+//     */
+//    public void setListingMode(Boolean listingMode) {
+//        this.listingMode = listingMode;
+//    }
 }

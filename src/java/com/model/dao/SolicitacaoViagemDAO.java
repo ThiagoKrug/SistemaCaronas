@@ -64,28 +64,75 @@ public class SolicitacaoViagemDAO {
             stmt.close();
 
             List<Passageiro> passageiros = solicitacao.getPassageiros();
-            for (Passageiro passageiro : passageiros) {
-                if (passageiro.getIdPassageiro() == null) {
-                    Passageiro teste = new PassageiroDAO().getByRG(passageiro.getRg());
-                    if (teste == null) {
-                        new PassageiroDAO().inserir(passageiro);
-                    }
-                    stmt = this.connection.prepareStatement(sql2);
-                    String rgp = passageiro.getRg();
-                    Passageiro pass2 = new PassageiroDAO().getByRG(rgp);
-                    Integer id2 = pass2.getIdPassageiro();
-                    stmt.setInt(1, id2);
-                    Integer id3 = gid;
-                    stmt.setInt(2, id3);
-                    stmt.execute();
-                    stmt.close();
-                }
-            }
+            this.cadastraPassageiros(passageiros);
+            this.linkPassageiros(passageiros, gid);
+//            for (Passageiro passageiro : passageiros) {
+//                if (passageiro.getIdPassageiro() == null) {
+//                    Passageiro teste = new PassageiroDAO().getByRG(passageiro.getRg());
+//                    if (teste == null) {
+//                        new PassageiroDAO().inserir(passageiro);
+//                    }
+//                    stmt = this.connection.prepareStatement(sql2);
+//                    String rgp = passageiro.getRg();
+//                    Passageiro pass2 = new PassageiroDAO().getByRG(rgp);
+//                    Integer id2 = pass2.getIdPassageiro();
+//                    stmt.setInt(1, id2);
+//                    Integer id3 = gid;
+//                    stmt.setInt(2, id3);
+//                    stmt.execute();
+//                    stmt.close();
+//                }
+//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    
+    
+    
+    private void cadastraPassageiros(List<Passageiro> pass) {
+        for (Passageiro p: pass) {
+            if (p.getIdPassageiro() == null) {
+                new PassageiroDAO().inserir(p);
+            }
+        }
+    }
+    
+    private void linkPassageiros(List<Passageiro> pass, Integer id) 
+    throws SQLException{
+        String sql_insert = "insert into passageiro_solicitacao_viagem ("
+                + "id_passageiro, id_solicitacao_viagem) values (?,?)";
+//        String sql_query = "select * from passageiro_solicitacao_viagem"
+//                + " where id_passageiro=? and id_solicitacao_viagem=?";
+        String sql_del = "delete from passageiro_solicitacao_viagem"
+                + " where id_solicitacao_viagem=?";
+        PreparedStatement st_del = this.connection.prepareStatement(sql_del);
+        st_del.setInt(1, id);
+        st_del.executeUpdate();
+        st_del.close();
+        for (Passageiro p: pass) {
+              PreparedStatement st_insert = this.connection.prepareStatement(
+                        sql_insert);
+              st_insert.setInt(1, p.getIdPassageiro());
+              st_insert.setInt(2, id);
+              st_insert.executeUpdate();
+              st_insert.close();
+//            PreparedStatement st_query = this.connection.prepareStatement(
+//                    sql_query);
+//            st_query.setInt(1, p.getIdPassageiro());
+//            st_query.setInt(2, id);
+//            ResultSet rs = st_query.executeQuery();
+//            if (!rs.next()) {
+//                PreparedStatement st_insert = this.connection.prepareStatement(
+//                        sql_insert);
+//                st_insert.setInt(1, p.getIdPassageiro());
+//                st_insert.setInt(2, id);
+//            }
+        }
+    }
+    
+    
     public void alterar(SolicitacaoViagem solicitacao) {
         String sql = "update solicitacao_viagem set "
                 + "numero_transportados=?, servidores=?, data_saida=?, hora_saida=?, "
@@ -93,9 +140,9 @@ public class SolicitacaoViagemDAO {
                 + "percurso=?, objetivo_viagem=?, id_veiculo=?, id_responsavel_solicitacao=?, "
                 + "id_responsavel_autorizante=?, status=? where id_solicitacao_viagem=? ";
 
-        String sql2 = "insert into passageiro_solicitacao_viagem "
-                + "(id_passageiro, id_solicitacao_viagem) values (?, ?)";
-        String sql3 = "select * from passageiro_solicitacao_viagem";
+//        String sql2 = "insert into passageiro_solicitacao_viagem "
+//                + "(id_passageiro, id_solicitacao_viagem) values (?, ?)";
+//        String sql3 = "select * from passageiro_solicitacao_viagem";
 
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -134,13 +181,15 @@ public class SolicitacaoViagemDAO {
             stmt.close();
 
             List<Passageiro> passageiros = solicitacao.getPassageiros();
-            for (Passageiro passageiro : passageiros) {
-                stmt = this.connection.prepareStatement(sql2);
-                stmt.setInt(1, passageiro.getIdPassageiro());
-                stmt.setInt(2, solicitacao.getId());
-                stmt.execute();
-                stmt.close();
-            }
+            cadastraPassageiros(passageiros);
+            linkPassageiros(passageiros, solicitacao.getId());
+//            for (Passageiro passageiro : passageiros) {
+//                stmt = this.connection.prepareStatement(sql2);
+//                stmt.setInt(1, passageiro.getIdPassageiro());
+//                stmt.setInt(2, solicitacao.getId());
+//                stmt.execute();
+//                stmt.close();
+//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

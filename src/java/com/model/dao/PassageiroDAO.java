@@ -53,7 +53,7 @@ public class PassageiroDAO {
         }
     }
 
-    public List<Passageiro> getPassageiros() {
+    public List<Passageiro> getPassageiros() throws Exception {
         try {
             List<Passageiro> passageiros = new ArrayList<Passageiro>();
             PreparedStatement stmt = this.connection.prepareStatement("select * from passageiro");
@@ -106,7 +106,7 @@ public class PassageiroDAO {
         }
     }
 
-    public Passageiro getById(Integer id) {
+    public Passageiro getById(Integer id) throws Exception {
         try {
             List<Passageiro> passageiros = new ArrayList<Passageiro>();
             PreparedStatement stmt = this.connection.prepareStatement("select * from passageiro where id_passageiro=?");
@@ -132,7 +132,7 @@ public class PassageiroDAO {
         return null;
     }
 
-    public List<Passageiro> getByNome(String nome) {
+    public List<Passageiro> getByNome(String nome) throws Exception {
         List<Passageiro> passageiros = new ArrayList<Passageiro>();
         try {
 
@@ -161,7 +161,7 @@ public class PassageiroDAO {
 
     }
 
-    public Passageiro getByRG(String nome) {
+    public Passageiro getByRG(String nome) throws Exception {
         //List<Passageiro> passageiros = new ArrayList<Passageiro>();
         try {
 

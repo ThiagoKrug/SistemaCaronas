@@ -255,8 +255,8 @@ public class SolicitacaoViagem {
     /**
      * @param passageiros the passageiros to set
      */
-    public void setPassageiros(List<Passageiro> passageiros) {
-        this.setPassageiros(passageiros);
+    public void setPassageiros(List<Passageiro> passageirosp) {
+        this.passageiros = passageirosp;
     }
 
     /**

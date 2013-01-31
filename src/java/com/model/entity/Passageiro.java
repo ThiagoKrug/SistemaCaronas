@@ -48,7 +48,7 @@ public class Passageiro {
     /**
      * @param nome the nome to set
      */
-    public void setNome(String nome) {
+    public void setNome(String nome) throws Exception{
         this.nome = nome;
         if (this.gambi != null) {
             this.gambi.adjust(this);
